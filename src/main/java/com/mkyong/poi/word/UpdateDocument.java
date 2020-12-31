@@ -15,7 +15,13 @@ public class UpdateDocument {
 
         UpdateDocument obj = new UpdateDocument();
 
-        obj.updateDocument("template.docx",
+        /*obj.updateDocument(
+                "c:\\test\\template.docx",
+                "c:\\test\\output.docx",
+                "mkyong");*/
+
+        obj.updateDocument(
+                "template.docx",
                 "c:\\test\\output.docx",
                 "mkyong");
     }
@@ -24,6 +30,10 @@ public class UpdateDocument {
 
         try (InputStream is = getFileFromResource(input);
              XWPFDocument doc = new XWPFDocument(is)) {
+
+        /*try (XWPFDocument doc = new XWPFDocument(
+                Files.newInputStream(Paths.get(input)))
+        ) {*/
 
             List<XWPFParagraph> xwpfParagraphList = doc.getParagraphs();
             //Iterate over paragraph list and check for the replaceable text in each paragraph
